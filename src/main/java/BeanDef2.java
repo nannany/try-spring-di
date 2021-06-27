@@ -7,16 +7,17 @@ public class BeanDef2 {
     @Bean
     public Bean2 bean2() {
         Bean2 bean2 = new Bean2();
-        System.out.printf("Bean2 in bean definition: %s %n", bean2.hashCode());
+        System.out.printf("Bean2 instance in bean2() method: %s %n", bean2.hashCode());
 
         return bean2;
     }
 
     @Bean
-    public String stringBean2(Bean2 bean2) {
-        System.out.printf("Bean2 another bean def:%s%n", bean2().hashCode());
+    public String notBean2() {
+        Bean2 bean2 = bean2();
+        System.out.printf("Bean2 instance in notBean2() method:%s%n", bean2.hashCode());
 
-        return "";
+        return bean2.getMessage();
     }
 
 }
